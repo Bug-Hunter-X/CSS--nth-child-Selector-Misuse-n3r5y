@@ -1,0 +1,13 @@
+The following CSS code snippet uses the `:nth-child` pseudo-class incorrectly, causing unexpected styling:
+
+```css
+.container :nth-child(even) { background-color: #f0f0f0; }
+```
+
+This selector targets every *even-numbered* element *within* the `.container` element, regardless of the type of element.  If you intend to style only even-numbered *paragraph* elements within the container, you'd need to be more specific:
+
+```css
+.container p:nth-child(even) { background-color: #f0f0f0; }
+```
+
+The original code may work as intended in some cases (e.g., if only one type of element exists in `.container`), but it's prone to failure and unpredictable behavior if the content changes.
